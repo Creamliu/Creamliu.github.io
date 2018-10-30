@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Cream">
 <meta property="og:description" content="类加载过程类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：加载、验证、准备、解析、初始化、使用和卸载七个阶段。 类加载的过程包括了加载、验证、准备、解析、初始化五个阶段。在这五个阶段中，加载、验证、准备和初始化这四个阶段发生的顺序是确定的，而解析阶段则不一定，它在某些情况下可以在初始化阶段之后开始，这是为了支持Java语言的运行时绑定（也成为动态绑定或晚期绑定）。另外注意这里">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-30T02:49:38.010Z">
+<meta property="og:updated_time" content="2018-10-30T03:05:52.235Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java虚拟机类加载机制">
 <meta name="twitter:description" content="类加载过程类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：加载、验证、准备、解析、初始化、使用和卸载七个阶段。 类加载的过程包括了加载、验证、准备、解析、初始化五个阶段。在这五个阶段中，加载、验证、准备和初始化这四个阶段发生的顺序是确定的，而解析阶段则不一定，它在某些情况下可以在初始化阶段之后开始，这是为了支持Java语言的运行时绑定（也成为动态绑定或晚期绑定）。另外注意这里">
@@ -343,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  5k
+                  5.1k
                 </span>
               
 
@@ -359,7 +359,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  17
+                  18
                 </span>
               
             </div>
@@ -430,7 +430,7 @@
 </li>
 </ol>
 <p>假设一个类变量的定义为：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="keyword">value</span> = <span class="number">3</span>；</span><br></pre></td></tr></table></figure></p>
-<p>那么变量value在准备阶段过后的初始值为0，而不是3，因为这时候尚未开始执行任何Java方法，而把value赋值为3的putstatic指令是在程序编译后，存放于类构造器<clinit>（）方法之中的，所以把value赋值为3的动作将在初始化阶段才会执行。</clinit></p>
+<p>那么变量value在准备阶段过后的初始值为0，而不是3，因为这时候尚未开始执行任何Java方法，而把value赋值为3的putstatic指令是在程序编译后，存放于类构造器&lt;clinit&gt;（）方法之中的，所以把value赋值为3的动作将在初始化阶段才会执行。</p>
 <p>这里还需要注意如下几点：</p>
 <p>对基本数据类型来说，对于类变量（static）和全局变量，如果不显式地对其赋值而直接使用，则系统会为其赋予默认的零值，而对于局部变量来说，在使用前必须显式地为其赋值，否则编译时不通过。<br>对于同时被static和final修饰的常量，必须在声明的时候就为其显式地赋值，否则编译时不通过；而只被final修饰的常量则既可以在声明时显式地为其赋值，也可以在类初始化时显式地为其赋值，总之，在使用前必须为其显式地赋值，系统不会为其赋予默认零值。<br>对于引用数据类型reference来说，如数组引用、对象引用等，如果没有对其进行显式地赋值而直接使用，系统都会为其赋予默认的零值，即null。<br>如果在数组初始化时没有对数组中的各元素赋值，那么其中的元素将根据对应的数据类型而被赋予默认的零值。</p>
 <ol start="3">
@@ -448,17 +448,17 @@
 <p><strong>3. 类方法解析：</strong>对类方法的解析与对字段解析的搜索步骤差不多，只是多了判断该方法所处的是类还是接口的步骤，而且对类方法的匹配搜索，是先搜索父类，再搜索接口。</p>
 <p><strong>4. 接口方法解析：</strong>与类方法解析步骤类似，知识接口不会有父类，因此，只递归向上搜索父接口就行了。</p>
 <hr>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>初始化是类加载过程的最后一步，到了此阶段，才真正开始执行类中定义的Java程序代码。在准备阶段，类变量已经被赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员通过程序指定的主观计划去初始化类变量和其他资源，或者可以从另一个角度来表达：初始化阶段是执行类构造器<clinit>()方法的过程。<br><strong><clinit>（）方法的执行规则:</clinit></strong></clinit></p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><p>初始化是类加载过程的最后一步，到了此阶段，才真正开始执行类中定义的Java程序代码。在准备阶段，类变量已经被赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员通过程序指定的主观计划去初始化类变量和其他资源，或者可以从另一个角度来表达：初始化阶段是执行类构造器&lt;clinit&gt;()方法的过程。<br><strong>&lt;clinit&gt;（）方法的执行规则:</strong></p>
 <ol>
-<li><p><clinit>（）方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句中可以赋值，但是不能访问。</clinit></p>
+<li><p>&lt;clinit&gt;（）方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句中可以赋值，但是不能访问。</p>
 </li>
-<li><p><clinit>（）方法与实例构造器<init>（）方法（类的构造函数）不同，它不需要显式地调用父类构造器，虚拟机会保证在子类的<clinit>（）方法执行之前，父类的<clinit>（）方法已经执行完毕。因此，在虚拟机中第一个被执行的<clinit>（）方法的类肯定是java.lang.Object。</clinit></clinit></clinit></init></clinit></p>
+<li><p>&lt;clinit&gt;（）方法与实例构造器&lt;init&gt;（）方法（类的构造函数）不同，它不需要显式地调用父类构造器，虚拟机会保证在子类的&lt;clinit&gt;（）方法执行之前，父类的&lt;clinit&gt;（）方法已经执行完毕。因此，在虚拟机中第一个被执行的&lt;clinit&gt;（）方法的类肯定是java.lang.Object。</p>
 </li>
-<li><p><clinit>（）方法对于类或接口来说并不是必须的，如果一个类中没有静态语句块，也没有对类变量的赋值操作，那么编译器可以不为这个类生成<clinit>（）方法。</clinit></clinit></p>
+<li><p>&lt;clinit&gt;（）方法对于类或接口来说并不是必须的，如果一个类中没有静态语句块，也没有对类变量的赋值操作，那么编译器可以不为这个类生成&lt;clinit&gt;（）方法。</p>
 </li>
-<li><p>接口中不能使用静态语句块，但仍然有类变量（final static）初始化的赋值操作，因此接口与类一样会生成<clinit>（）方法。但是接口鱼类不同的是：执行接口的<clinit>（）方法不需要先执行父接口的<clinit>（）方法，只有当父接口中定义的变量被使用时，父接口才会被初始化。另外，接口的实现类在初始化时也一样不会执行接口的<clinit>（）方法。</clinit></clinit></clinit></clinit></p>
+<li><p>接口中不能使用静态语句块，但仍然有类变量（final static）初始化的赋值操作，因此接口与类一样会生成&lt;clinit&gt;（）方法。但是接口鱼类不同的是：执行接口的&lt;clinit&gt;（）方法不需要先执行父接口的&lt;clinit&gt;（）方法，只有当父接口中定义的变量被使用时，父接口才会被初始化。另外，接口的实现类在初始化时也一样不会执行接口的&lt;clinit&gt;（）方法。</p>
 </li>
-<li><p>虚拟机会保证一个类的<clinit>（）方法在多线程环境中被正确地加锁和同步，如果多个线程同时去初始化一个类，那么只会有一个线程去执行这个类的<clinit>（）方法，其他线程都需要阻塞等待，直到活动线程执行<clinit>（）方法完毕。如果在一个类的<clinit>（）方法中有耗时很长的操作，那就可能造成多个线程阻塞，在实际应用中这种阻塞往往是很隐蔽的。<br>下面给出一个简单的例子，以便更清晰地说明如上规则：</clinit></clinit></clinit></clinit></p>
+<li><p>虚拟机会保证一个类的&lt;clinit&gt;（）方法在多线程环境中被正确地加锁和同步，如果多个线程同时去初始化一个类，那么只会有一个线程去执行这个类的&lt;clinit&gt;（）方法，其他线程都需要阻塞等待，直到活动线程执行&lt;clinit&gt;（）方法完毕。如果在一个类的&lt;clinit&gt;（）方法中有耗时很长的操作，那就可能造成多个线程阻塞，在实际应用中这种阻塞往往是很隐蔽的。<br>下面给出一个简单的例子，以便更清晰地说明如上规则：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">static</span>&#123;</span><br><span class="line">		a = <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> b = a;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClinitTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(Child.b);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -466,14 +466,14 @@
 <ol>
 <li><p>首先在准备阶段为类变量分配内存并设置类变量初始值，这样A和B均被赋值为默认值0</p>
 </li>
-<li><p>再在调用<clinit>（）方法时给他们赋予程序中指定的值。当我们调用Child.b时，触发Child的<clinit>（）方法，根据规则2，在此之前，要先执行完其父类Father的<clinit>（）方法，又根据规则1，在执行<clinit>（）方法时，需要按static语句或static变量赋值操作等在代码中出现的顺序来执行相关的static语句，因此当触发执行Father的<clinit>（）方法时，会先将a赋值为1，再执行static语句块中语句，将a赋值为2，而后再执行Child类的<clinit>（）方法，这样便会将b的赋值为2.</clinit></clinit></clinit></clinit></clinit></clinit></p>
+<li><p>再在调用&lt;clinit&gt;（）方法时给他们赋予程序中指定的值。当我们调用Child.b时，触发Child的&lt;clinit&gt;（）方法，根据规则2，在此之前，要先执行完其父类Father的&lt;clinit&gt;（）方法，又根据规则1，在执行&lt;clinit&gt;（）方法时，需要按static语句或static变量赋值操作等在代码中出现的顺序来执行相关的static语句，因此当触发执行Father的&lt;clinit&gt;（）方法时，会先将a赋值为1，再执行static语句块中语句，将a赋值为2，而后再执行Child类的&lt;clinit&gt;（）方法，这样便会将b的赋值为2.</p>
 </li>
-<li><p>如果我们颠倒一下Father类中“public static int a = 1;”语句和“static语句块”的顺序，程序执行后，则会打印出1。很明显是根据规则1，执行Father的<clinit>（）方法时，根据顺序先执行了static语句块中的内容，后执行了“public static int a = 1;”语句。<br>另外，在颠倒二者的顺序之后，如果在static语句块中对a进行访问（比如将a赋给某个变量），在编译时将会报错，因为根据规则1，它只能对a进行赋值，而不能访问。</clinit></p>
+<li><p>如果我们颠倒一下Father类中“public static int a = 1;”语句和“static语句块”的顺序，程序执行后，则会打印出1。很明显是根据规则1，执行Father的&lt;clinit&gt;（）方法时，根据顺序先执行了static语句块中的内容，后执行了“public static int a = 1;”语句。<br>另外，在颠倒二者的顺序之后，如果在static语句块中对a进行访问（比如将a赋给某个变量），在编译时将会报错，因为根据规则1，它只能对a进行赋值，而不能访问。</p>
 </li>
 </ol>
 <hr>
 <hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个类加载过程中，除了在加载阶段用户应用程序可以自定义类加载器参与之外，其余所有的动作完全由虚拟机主导和控制。到了初始化才开始执行类中定义的Java程序代码（亦及字节码），但这里的执行代码只是个开端，它仅限于<clinit>（）方法。类加载过程中主要是将Class文件（准确地讲，应该是类的二进制字节流）加载到虚拟机内存中，真正执行字节码的操作，在加载完成后才真正开始。</clinit></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>整个类加载过程中，除了在加载阶段用户应用程序可以自定义类加载器参与之外，其余所有的动作完全由虚拟机主导和控制。到了初始化才开始执行类中定义的Java程序代码（亦及字节码），但这里的执行代码只是个开端，它仅限于&lt;clinit&gt;（）方法。类加载过程中主要是将Class文件（准确地讲，应该是类的二进制字节流）加载到虚拟机内存中，真正执行字节码的操作，在加载完成后才真正开始。</p>
 <hr>
 
       
@@ -709,7 +709,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共10.7k字</span>
+  <span class="post-count">博客全站共10.8k字</span>
 </div>
 
         
