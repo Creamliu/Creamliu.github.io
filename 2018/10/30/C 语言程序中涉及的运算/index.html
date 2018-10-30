@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="计算机基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
+<meta name="keywords" content="计算机基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C 语言程序中涉及的运算">
+<meta property="og:url" content="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/index.html">
+<meta property="og:site_name" content="Cream">
+<meta property="og:description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-30T12:18:01.006Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C 语言程序中涉及的运算">
+<meta name="twitter:description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/">
+
+
+
+
+
+  <title>C 语言程序中涉及的运算 | Cream</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Cream</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">君の名は</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cream">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cream.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Cream">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C 语言程序中涉及的运算</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T20:18:01+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  951
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。</p>
+<hr>
+<h2 id="C-语言程序中涉及的运算"><a href="#C-语言程序中涉及的运算" class="headerlink" title="C 语言程序中涉及的运算"></a>C 语言程序中涉及的运算</h2><h2 id="算术运算（最基本的运算）"><a href="#算术运算（最基本的运算）" class="headerlink" title="算术运算（最基本的运算）"></a>算术运算（最基本的运算）</h2><p>无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等</p>
+<h2 id="按位运算"><a href="#按位运算" class="headerlink" title="按位运算"></a>按位运算</h2><ol>
+<li><p>用途<br>• 对位串实现“掩码”（mask）操作或相应的其他处理（主要用于对多媒体数据或状态/控制信息进行处理）</p>
+</li>
+<li><p>操作</p>
+</li>
+</ol>
+<ul>
+<li>按位或：“|”</li>
+<li>按位与：“&amp;”</li>
+<li>按位取反：“~”</li>
+<li>按位异或：“^”</li>
+</ul>
+<p><strong>如何从数据y中提取低位字节，并使高字节为0？</strong><br>可用“&amp;”实现“掩码”操作：y &amp; 0x00FF<br>例如，当y=0x0B2C时，得到结果为：0x002C</p>
+<hr>
+<h2 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h2><ol>
+<li><p>用途<br>• 提取部分信息<br>• 扩大或缩小2、4、8…倍</p>
+</li>
+<li><p>操作<br>• 左移:：x&lt;&lt;k; 右移： x&gt;&gt;k<br>• 从运算符无法区分逻辑移位还是算术移位，由x的类型确定<br>• 若x为无符号数：逻辑左（右）移高（低）位移出，低（高）位补0，可能溢出！</p>
+</li>
+</ol>
+<p><strong>问题：何时可能发生溢出？如何判断溢出？</strong><br>若高位移出的是1，则左移时发生溢出<br>• 若x为带符号整数：算术左移、算术右移<br>左移：高位移出，低位补0。可能溢出！<br>溢出判断：若移出的位不等于新的符号位，则溢出。<br>右移：低位移出，高位补符，可能发生有效数据丢失。</p>
+<p><strong>移位运算和按位运算举例</strong></p>
+<p>对于一个 n （ n ≥8）位的变量 x ，请根据C语言中按位运算的定义，<br>写出满足下列要求的C语言表达式。<br>（1） x 的最高有效字节不变，其余各位全变为0。<br>（2） x 的最低有效字节不变，其余各位全变为0。<br>（3） x 的最低有效字节全变为0，其余各位取反。<br>（4） x 的最低有效字节全变1，其余各位不变。<br>参考答案：<br>（1）(x&gt;&gt;(n-8))&lt;&lt;(n-8)<br>（2）x &amp; 0xFF<br>（3）((x^ ~0xFF) &gt;&gt;8 )&lt;&lt; 8<br>（3）x | 0xFF</p>
+<hr>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><ol>
+<li><p>用途<br>• 用于关系表达式的运算<br>例如，if （x&gt;y and i&lt;100）then ……中的“and”运算</p>
+</li>
+<li><p>–操作<br>• “‖”表示“OR”运算<br>• “&amp;&amp;”表示“AND”运算<br>例如， if ((x&gt;y) &amp;&amp; (i&lt;100)) then ……<br>• “!”表示“NOT”运算</p>
+</li>
+<li><p>与按位运算的差别<br>• 符号表示不同：&amp; ~ &amp;&amp; ；| ~ ‖； ……<br>• 运算过程不同：按位 ~ 整体<br>• 结果类型不同：位串 ~ 逻辑值</p>
+</li>
+</ol>
+<hr>
+<h2 id="位扩展和位截断运算"><a href="#位扩展和位截断运算" class="headerlink" title="位扩展和位截断运算"></a>位扩展和位截断运算</h2><ol>
+<li><p>用途<br>• 类型转换时可能需要数据扩展或截断</p>
+</li>
+<li><p>操作<br>• 没有专门操作运算符，根据类型转换前、后数据长短<br>确定是扩展还是截断<br>• 扩展：短转长<br>无符号数：0扩展（前面补0）<br>带符号整数：符号扩展（前面补符）<br>• 截断：长转短<br>强行将高位丢弃，故可能发生“溢出”</p>
+</li>
+</ol>
+<hr>
+<hr>
+<p><strong>例1（扩展操作）：</strong><br><strong>在大端机上输出si, usi, i, ui的十进制和十六进制值是什么？</strong><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">short si</span> = -32768;</span><br><span class="line"><span class="attribute">unsigned short usi</span> = si;</span><br><span class="line"><span class="attribute">int i</span> = si;</span><br><span class="line"><span class="attribute">unsingned ui</span> = usi ;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">si = <span class="number">-32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">usi = <span class="number">32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">i = <span class="number">-32768</span> FF FF <span class="number">80</span> <span class="number">00</span></span><br><span class="line">ui = <span class="number">32768</span> <span class="number">00</span> <span class="number">00</span> <span class="number">80</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
+<p>带符号整数：符号扩展<br>无符号整数：0扩展</p>
+<hr>
+<p><strong>例2（截断操作）：i 和 j 是否相等？</strong><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int i</span> = 32768;</span><br><span class="line"><span class="attribute">short si</span> = (short) i;</span><br><span class="line"><span class="attribute">int j</span> = si;</span><br></pre></td></tr></table></figure></p>
+<p>不相等！<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">32768</span> <span class="number">00</span> <span class="number">00</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">si = <span class="number">-32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">j = <span class="number">-32768</span> FF FF <span class="number">80</span> <span class="number">00</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>原因：对i截断时发生了“溢出”，即：32768截断为16位数时，因其超出16位能表示的最大值，故无法截断为正确的16位数！</strong></p>
+
+      
+    </div>
+    
+    
+    
+		
+	
+	  <div>
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	  </div>
+	
+	
+	
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机基础/" rel="tag"><i class="fa fa-tag"></i> 计算机基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/29/Java虚拟机类加载机制/" rel="next" title="Java虚拟机类加载机制">
+                <i class="fa fa-chevron-left"></i> Java虚拟机类加载机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDYyMi8xNzE0OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/cream.jpg" alt="Cream">
+            
+              <p class="site-author-name" itemprop="name">Cream</p>
+              <p class="site-description motion-element" itemprop="description">Nothing is impossible！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-语言程序中涉及的运算"><span class="nav-number">1.</span> <span class="nav-text">C 语言程序中涉及的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算术运算（最基本的运算）"><span class="nav-number">2.</span> <span class="nav-text">算术运算（最基本的运算）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位运算"><span class="nav-number">3.</span> <span class="nav-text">按位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移位运算"><span class="nav-number">4.</span> <span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算"><span class="nav-number">5.</span> <span class="nav-text">逻辑运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位扩展和位截断运算"><span class="nav-number">6.</span> <span class="nav-text">位扩展和位截断运算</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cream</span>
+
+  
+</div>
+
+
+  <div class="powered-by">
+    <span id="busuanzi_container_site_pv">
+      本站总访问量<span id="busuanzi_value_site_pv"></span>次
+    </span>
+  </div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共11.7k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
