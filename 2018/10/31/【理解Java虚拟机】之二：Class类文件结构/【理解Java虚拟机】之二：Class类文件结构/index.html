@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="计算机基础,">
+  <meta name="keywords" content="JVM,">
 
 
 
@@ -86,18 +86,20 @@
 
 
 
-<meta name="description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
-<meta name="keywords" content="计算机基础">
+<meta name="description" content="平台无关性Java是与平台无关的语言，这得益于Java源代码编译后生成的存储字节码的文件，即Class文件，以及Java虚拟机的实现。不仅使用Java编译器可以把Java代码编译成存储字节码的Class文件，使用JRuby等其他语言的编译器也可以把程序代码编译成Class文件，虚拟机并不关心Class的来源是什么语言，只要它符合一定的结构，就可以在Java中运行。Java语言中的各种变量、关键字和">
+<meta name="keywords" content="JVM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C 语言程序中涉及的运算">
-<meta property="og:url" content="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/index.html">
+<meta property="og:title" content="【理解Java虚拟机】之二：Class类文件结构">
+<meta property="og:url" content="http://yoursite.com/2018/10/31/【理解Java虚拟机】之二：Class类文件结构/【理解Java虚拟机】之二：Class类文件结构/index.html">
 <meta property="og:site_name" content="Cream">
-<meta property="og:description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
+<meta property="og:description" content="平台无关性Java是与平台无关的语言，这得益于Java源代码编译后生成的存储字节码的文件，即Class文件，以及Java虚拟机的实现。不仅使用Java编译器可以把Java代码编译成存储字节码的Class文件，使用JRuby等其他语言的编译器也可以把程序代码编译成Class文件，虚拟机并不关心Class的来源是什么语言，只要它符合一定的结构，就可以在Java中运行。Java语言中的各种变量、关键字和">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-30T12:18:01.006Z">
+<meta property="og:image" content="https://i.imgur.com/w3EBpYu.jpg">
+<meta property="og:updated_time" content="2018-10-31T10:22:32.231Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C 语言程序中涉及的运算">
-<meta name="twitter:description" content="在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。  C 语言程序中涉及的运算算术运算（最基本的运算）无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等 按位运算 用途• 对位串实现“掩码”（mask）操作或相应的其他处理（主要">
+<meta name="twitter:title" content="【理解Java虚拟机】之二：Class类文件结构">
+<meta name="twitter:description" content="平台无关性Java是与平台无关的语言，这得益于Java源代码编译后生成的存储字节码的文件，即Class文件，以及Java虚拟机的实现。不仅使用Java编译器可以把Java代码编译成存储字节码的Class文件，使用JRuby等其他语言的编译器也可以把程序代码编译成Class文件，虚拟机并不关心Class的来源是什么语言，只要它符合一定的结构，就可以在Java中运行。Java语言中的各种变量、关键字和">
+<meta name="twitter:image" content="https://i.imgur.com/w3EBpYu.jpg">
 
 
 
@@ -127,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/">
+  <link rel="canonical" href="http://yoursite.com/2018/10/31/【理解Java虚拟机】之二：Class类文件结构/【理解Java虚拟机】之二：Class类文件结构/">
 
 
 
 
 
-  <title>C 语言程序中涉及的运算 | Cream</title>
+  <title>【理解Java虚拟机】之二：Class类文件结构 | Cream</title>
   
 
 
@@ -260,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/C 语言程序中涉及的运算/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/【理解Java虚拟机】之二：Class类文件结构/【理解Java虚拟机】之二：Class类文件结构/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cream">
@@ -277,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C 语言程序中涉及的运算</h1>
+          <h1 class="post-title" itemprop="name headline">【理解Java虚拟机】之二：Class类文件结构</h1>
         
 
         <div class="post-meta">
@@ -289,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T20:18:01+08:00">
-                2018-10-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-31T17:47:53+08:00">
+                2018-10-31
               </time>
             
 
@@ -312,8 +314,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
+                  <a href="/categories/JVM/" itemprop="url" rel="index">
+                    <span itemprop="name">JVM</span>
                   </a>
                 </span>
 
@@ -343,7 +345,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  951
+                  1.5k
                 </span>
               
 
@@ -359,7 +361,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -380,57 +382,26 @@
       
 
       
-        <p>在高级语言程序的表达式中的各类运算，会被编译器转换为相应的运算指令，程序运行时， CPU 执行这些指令，控制操作数在运算电路中被处理。这里主要讲C 语言程序中涉及的运算，包括算术运算、按位运算、逻辑运算、移位运算等。</p>
+        <h2 id="平台无关性"><a href="#平台无关性" class="headerlink" title="平台无关性"></a>平台无关性</h2><p>Java是与平台无关的语言，这得益于Java源代码编译后生成的存储字节码的文件，即Class文件，以及Java虚拟机的实现。不仅使用Java编译器可以把Java代码编译成存储字节码的Class文件，使用JRuby等其他语言的编译器也可以把程序代码编译成Class文件，虚拟机并不关心Class的来源是什么语言，只要它符合一定的结构，就可以在Java中运行。Java语言中的各种变量、关键字和运算符的语义最终都是由多条字节码命令组合而成的，因此字节码命令所能提供的语义描述能力肯定会比Java语言本身更强大，这便为其他语言实现一些有别于Java的语言特性提供了基础，而且这也正是在类加载时要进行安全验证的原因。</p>
 <hr>
-<h2 id="C-语言程序中涉及的运算"><a href="#C-语言程序中涉及的运算" class="headerlink" title="C 语言程序中涉及的运算"></a>C 语言程序中涉及的运算</h2><h2 id="算术运算（最基本的运算）"><a href="#算术运算（最基本的运算）" class="headerlink" title="算术运算（最基本的运算）"></a>算术运算（最基本的运算）</h2><p>无符号数、带符号整数、浮点数的+、-、*、/ 、%运算等</p>
-<h2 id="按位运算"><a href="#按位运算" class="headerlink" title="按位运算"></a>按位运算</h2><ol>
-<li><p>用途<br>• 对位串实现“掩码”（mask）操作或相应的其他处理（主要用于对多媒体数据或状态/控制信息进行处理）</p>
-</li>
-<li><p>操作</p>
-</li>
-</ol>
+<h2 id="类文件结构"><a href="#类文件结构" class="headerlink" title="类文件结构"></a>类文件结构</h2><p>Class文件是一组以8位字节为基础单位的二进制流，各个数据项目严格按照顺序紧凑地排列在Class文件中，中间没有添加任何分隔符，这使得整个Class文件中存储的内容几乎全部都是程序运行的必要数据。根据Java虚拟机规范的规定，Class文件格式采用一种类似于C语言结构体的伪结构来存储，这种伪结构中只有两种数据类型：无符号数和表。无符号数属于基本数据类型，以u1、u2、u4、u8来分别代表1、2、4、8个字节的无符号数。表是由多个无符号数或其他表作为数据项构成的符合数据类型，所有的表都习惯性地以“_info”结尾。</p>
+<p>整个Class文件本质上就是一张表，它由如下所示的数据项构成。</p>
+<p>从表中可以看出，无论是无符号数还是表，当需要描述同一类型但数量不定的多个数据时，经常会使用一个前置的容量计数器加若干个连续的该数据项的形式，称这一系列连续的摸一个类型的数据为某一类型的集合，比如，fields_count个field_info表数据构成了字段表集合。这里需要说明的是：Class文件中的数据项，都是严格按照上表中的顺序和数量被严格限定的，每个字节代表的含义，长度，先后顺序等都不允许改变。</p>
+<p>下表列出了Class文件中各个数据项的具体含义：<br><img src="https://i.imgur.com/w3EBpYu.jpg" alt=""></p>
+<p>从表中可以看出，无论是无符号数还是表，当需要描述同一类型但数量不定的多个数据时，经常会在其前面使用一个前置的容量计数器来记录其数量，而便跟着若干个连续的数据项，称这一系列连续的某一类型的数据为某一类型的集合，如：fields_count个field_info表数据便组成了方法表集合。这里需要注意的是：Class文件中各数据项是按照上表的顺序和数量被严格限定的，每个字节代表的含义、长度、先后顺序都不允许改变。</p>
+<h3 id="magic与version"><a href="#magic与version" class="headerlink" title="magic与version"></a>magic与version</h3><p>每个Class文件的头4个字节称为魔数（magic），它的唯一作用是判断该文件是否为一个能被虚拟机接受的Class文件。它的值固定为0xCAFEBABE。紧接着magic的4个字节存储的是Class文件的次版本号和主版本号，高版本的JDK能向下兼容低版本的Class文件，但不能运行更高版本的Class文件。</p>
+<h3 id="constant-pool"><a href="#constant-pool" class="headerlink" title="constant_pool"></a>constant_pool</h3><p>major_version之后是常量池（constant_pool）的入口，它是Class文件中与其他项目关联最多的数据类型，也是占用Class文件空间最大的数据项目之一。</p>
+<p><strong>常量池中主要存放两大类常量：字面量和符号引用。</strong>字面量比较接近于Java层面的常量概念，如文本字符串、被声明为final的常量值等。而符号引用总结起来则包括了下面三类常量：</p>
 <ul>
-<li>按位或：“|”</li>
-<li>按位与：“&amp;”</li>
-<li>按位取反：“~”</li>
-<li>按位异或：“^”</li>
+<li>类和接口的全限定名（即带有包名的Class名，如：org.lxh.test.TestClass）</li>
+<li>字段的名称和描述符（private、static等描述符）</li>
+<li>方法的名称和描述符（private、static等描述符）<br>虚拟机在加载Class文件时才会进行动态连接，也就是说，Class文件中不会保存各个方法和字段的最终内存布局信息，因此，这些字段和方法的符号引用不经过转换是无法直接被虚拟机使用的。当虚拟机运行时，需要从常量池中获得对应的符号引用，再在类加载过程中的解析阶段将其替换为直接引用，并翻译到具体的内存地址中。</li>
 </ul>
-<p><strong>如何从数据y中提取低位字节，并使高字节为0？</strong><br>可用“&amp;”实现“掩码”操作：y &amp; 0x00FF<br>例如，当y=0x0B2C时，得到结果为：0x002C</p>
-<hr>
-<h2 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h2><ol>
-<li><p>用途<br>• 提取部分信息<br>• 扩大或缩小2、4、8…倍</p>
-</li>
-<li><p>操作<br>• 左移:：x&lt;&lt;k; 右移： x&gt;&gt;k<br>• 从运算符无法区分逻辑移位还是算术移位，由x的类型确定<br>• 若x为无符号数：逻辑左（右）移高（低）位移出，低（高）位补0，可能溢出！</p>
-</li>
-</ol>
-<p><strong>问题：何时可能发生溢出？如何判断溢出？</strong><br>若高位移出的是1，则左移时发生溢出<br>• 若x为带符号整数：算术左移、算术右移<br>左移：高位移出，低位补0。可能溢出！<br>溢出判断：若移出的位不等于新的符号位，则溢出。<br>右移：低位移出，高位补符，可能发生有效数据丢失。</p>
-<p><strong>移位运算和按位运算举例</strong></p>
-<p>对于一个 n （ n ≥8）位的变量 x ，请根据C语言中按位运算的定义，<br>写出满足下列要求的C语言表达式。<br>（1） x 的最高有效字节不变，其余各位全变为0。<br>（2） x 的最低有效字节不变，其余各位全变为0。<br>（3） x 的最低有效字节全变为0，其余各位取反。<br>（4） x 的最低有效字节全变1，其余各位不变。<br>参考答案：<br>（1）(x&gt;&gt;(n-8))&lt;&lt;(n-8)<br>（2）x &amp; 0xFF<br>（3）((x^ ~0xFF) &gt;&gt;8 )&lt;&lt; 8<br>（3）x | 0xFF</p>
-<hr>
-<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><ol>
-<li><p>用途<br>• 用于关系表达式的运算<br>例如，if （x&gt;y and i&lt;100）then ……中的“and”运算</p>
-</li>
-<li><p>–操作<br>• “‖”表示“OR”运算<br>• “&amp;&amp;”表示“AND”运算<br>例如， if ((x&gt;y) &amp;&amp; (i&lt;100)) then ……<br>• “!”表示“NOT”运算</p>
-</li>
-<li><p>与按位运算的差别<br>• 符号表示不同：&amp; ~ &amp;&amp; ；| ~ ‖； ……<br>• 运算过程不同：按位 ~ 整体<br>• 结果类型不同：位串 ~ 逻辑值</p>
-</li>
-</ol>
-<hr>
-<h2 id="位扩展和位截断运算"><a href="#位扩展和位截断运算" class="headerlink" title="位扩展和位截断运算"></a>位扩展和位截断运算</h2><ol>
-<li><p>用途<br>• 类型转换时可能需要数据扩展或截断</p>
-</li>
-<li><p>操作<br>• 没有专门操作运算符，根据类型转换前、后数据长短<br>确定是扩展还是截断<br>• 扩展：短转长<br>无符号数：0扩展（前面补0）<br>带符号整数：符号扩展（前面补符）<br>• 截断：长转短<br>强行将高位丢弃，故可能发生“溢出”</p>
-</li>
-</ol>
-<hr>
-<hr>
-<p><strong>例1（扩展操作）：</strong><br><strong>在大端机上输出si, usi, i, ui的十进制和十六进制值是什么？</strong><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">short si</span> = -32768;</span><br><span class="line"><span class="attribute">unsigned short usi</span> = si;</span><br><span class="line"><span class="attribute">int i</span> = si;</span><br><span class="line"><span class="attribute">unsingned ui</span> = usi ;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">si = <span class="number">-32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">usi = <span class="number">32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">i = <span class="number">-32768</span> FF FF <span class="number">80</span> <span class="number">00</span></span><br><span class="line">ui = <span class="number">32768</span> <span class="number">00</span> <span class="number">00</span> <span class="number">80</span> <span class="number">00</span></span><br></pre></td></tr></table></figure>
-<p>带符号整数：符号扩展<br>无符号整数：0扩展</p>
-<hr>
-<p><strong>例2（截断操作）：i 和 j 是否相等？</strong><br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">int i</span> = 32768;</span><br><span class="line"><span class="attribute">short si</span> = (short) i;</span><br><span class="line"><span class="attribute">int j</span> = si;</span><br></pre></td></tr></table></figure></p>
-<p>不相等！<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">32768</span> <span class="number">00</span> <span class="number">00</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">si = <span class="number">-32768</span> <span class="number">80</span> <span class="number">00</span></span><br><span class="line">j = <span class="number">-32768</span> FF FF <span class="number">80</span> <span class="number">00</span></span><br></pre></td></tr></table></figure></p>
-<p><strong>原因：对i截断时发生了“溢出”，即：32768截断为16位数时，因其超出16位能表示的最大值，故无法截断为正确的16位数！</strong></p>
+<p><strong>这里说明下符号引用和直接引用的区别与关联：</strong></p>
+<ul>
+<li>符号引用：符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。符号引用与虚拟机实现的内存布局无关，引用的目标并不一定已经加载到了内存中。</li>
+<li>直接引用：直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。直接引用是与虚拟机实现的内存布局相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。如果有了直接引用，那说明引用的目标必定已经存在于内存之中了。</li>
+</ul>
 
       
     </div>
@@ -459,7 +430,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机基础/" rel="tag"><i class="fa fa-tag"></i> 计算机基础</a>
+            <a href="/tags/JVM/" rel="tag"><i class="fa fa-tag"></i> JVM</a>
           
         </div>
       
@@ -472,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/29/Java虚拟机类加载机制/" rel="next" title="Java虚拟机类加载机制">
-                <i class="fa fa-chevron-left"></i> Java虚拟机类加载机制
+              <a href="/2018/10/30/C 语言程序中涉及的运算/" rel="next" title="C 语言程序中涉及的运算">
+                <i class="fa fa-chevron-left"></i> C 语言程序中涉及的运算
               </a>
             
           </div>
@@ -481,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/31/【理解Java虚拟机】之二：Class类文件结构/【理解Java虚拟机】之二：Class类文件结构/" rel="prev" title="【理解Java虚拟机】之二：Class类文件结构">
-                【理解Java虚拟机】之二：Class类文件结构 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-语言程序中涉及的运算"><span class="nav-number">1.</span> <span class="nav-text">C 语言程序中涉及的运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算术运算（最基本的运算）"><span class="nav-number">2.</span> <span class="nav-text">算术运算（最基本的运算）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按位运算"><span class="nav-number">3.</span> <span class="nav-text">按位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移位运算"><span class="nav-number">4.</span> <span class="nav-text">移位运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#逻辑运算"><span class="nav-number">5.</span> <span class="nav-text">逻辑运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位扩展和位截断运算"><span class="nav-number">6.</span> <span class="nav-text">位扩展和位截断运算</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#平台无关性"><span class="nav-number">1.</span> <span class="nav-text">平台无关性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类文件结构"><span class="nav-number">2.</span> <span class="nav-text">类文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#magic与version"><span class="nav-number">2.1.</span> <span class="nav-text">magic与version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#constant-pool"><span class="nav-number">2.2.</span> <span class="nav-text">constant_pool</span></a></li></ol></li></ol></div>
             
 
           </div>
